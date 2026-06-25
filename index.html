@@ -5,81 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kryzna - Edukasi Jaringan & Komputer</title>
     <style>
+        /* Variabel Warna Tema (Mendukung Dark Mode) */
+        :root {
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --text-main: #333333;
+            --text-muted: #555555;
+            --header-bg: #1e3a8a;
+            --border-card: #0ea5e9;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --header-bg: #1e1b4b;
+            --border-card: #38bdf8;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
         /* Gaya Dasar & Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background 0.3s, color 0.3s; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
 
         /* Navigasi */
-        header { background-color: #1e3a8a; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        header h1 { font-size: 1.5rem; }
-        nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+        header { background-color: var(--header-bg); color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px var(--shadow); }
+        header h1 { font-size: 1.5rem; letter-spacing: 0.5px; }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; }
         nav a:hover { color: #38bdf8; }
 
+        /* Tombol Dark Mode */
+        .theme-toggle { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #fff; padding: 0.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: rgba(255,255,255,0.1); }
+        .theme-toggle:hover { background-color: rgba(255,255,255,0.2); }
+
         /* Banner Utama */
-        .hero { background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%); color: white; text-align: center; padding: 4rem 1rem; }
-        .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+        .hero { background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%); color: white; text-align: center; padding: 5rem 1rem; position: relative; }
+        .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; font-weight: 700; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
 
         /* Kolom Pencarian (Search Bar) */
-        .search-container {
-            max-width: 500px;
-            margin: -1.5rem auto 2rem auto;
-            padding: 0 1rem;
-            position: relative;
-            z-index: 10;
-        }
-        .search-input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            border: none;
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            outline: none;
-            transition: box-shadow 0.3s;
-        }
-        .search-input:focus {
-            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
-        }
+        .search-container { max-width: 500px; margin: -1.8rem auto 3rem auto; padding: 0 1rem; position: relative; z-index: 10; }
+        .search-input { width: 100%; padding: 1.2rem 1.8rem; font-size: 1rem; border: 1px solid transparent; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); outline: none; background-color: var(--bg-card); color: var(--text-main); }
+        .search-input:focus { border-color: #0ea5e9; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.25); }
 
         /* Konten Utama */
         .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
-        .section-title { text-align: center; margin-bottom: 2rem; color: #1e3a8a; }
+        .section-title { text-align: center; margin-bottom: 2.5rem; color: #1e3a8a; font-size: 2rem; position: relative; }
+        [data-theme="dark"] .section-title { color: #38bdf8; }
 
         /* Grid Kartu Tutorial */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #0ea5e9; display: flex; flex-direction: column; justify-content: space-between; }
-        .card h3 { margin-bottom: 0.5rem; color: #1e3a8a; }
-        .card p { margin-bottom: 1.5rem; color: #555; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
         
-        /* Tombol Link */
-        .btn-read { display: block; background-color: #0ea5e9; color: white; text-decoration: none; padding: 0.6rem 1rem; border-radius: 5px; cursor: pointer; font-weight: 600; text-align: center; transition: background 0.2s; }
-        .btn-read:hover { background-color: #0284c7; }
+        /* Kartu dengan Efek Animasi Modern */
+        .card { background: var(--bg-card); border-radius: 12px; padding: 1.8rem; box-shadow: 0 4px 15px var(--shadow); border-top: 5px solid var(--border-card); display: flex; flex-direction: column; justify-content: space-between; transform: translateY(0); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px var(--shadow); }
+        .card h3 { margin-bottom: 0.6rem; color: var(--text-main); font-size: 1.3rem; }
+        .card p { margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.95rem; }
+        
+        /* Meta Info (Tag & Waktu Baca) */
+        .card-meta { display: flex; gap: 0.8rem; margin-bottom: 0.8rem; align-items: center; font-size: 0.8rem; font-weight: 600; }
+        .tag-category { background-color: rgba(14, 165, 233, 0.15); color: #0ea5e9; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; }
+        [data-theme="dark"] .tag-category { color: #38bdf8; background-color: rgba(56, 189, 248, 0.15); }
+        .read-time { color: var(--text-muted); display: flex; align-items: center; gap: 3px; }
 
-        footer { background-color: #1e293b; color: white; text-align: center; padding: 1.5rem 1rem; margin-top: 4rem; }
+        /* Tombol Link */
+        .btn-read { display: block; background-color: #0ea5e9; color: white; text-decoration: none; padding: 0.75rem 1rem; border-radius: 6px; font-weight: 600; text-align: center; transition: background 0.2s, transform 0.1s; }
+        .btn-read:hover { background-color: #0284c7; }
+        .btn-read:active { transform: scale(0.98); }
+
+        /* Section Tentang */
+        .about-section { text-align: center; max-width: 700px; margin: 5rem auto; padding: 2.5rem 1.5rem; background: var(--bg-card); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow); }
+
+        footer { background-color: #1e293b; color: white; text-align: center; padding: 1.8rem 1rem; margin-top: 5rem; font-size: 0.95rem; border-top: 4px solid #111827; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Kryzna</h1>
-        <nav>
-            <a href="#tutorial">Tutorial</a>
-            <a href="#tentang">Tentang</a>
-        </nav>
+        <div class="nav-right">
+            <nav>
+                <a href="#tutorial">Tutorial</a>
+            </nav>
+            <!-- Tombol Switch Dark Mode -->
+            <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Ubah Mode Tampilan">🌙</button>
+        </div>
     </header>
 
     <section class="hero">
         <h2>Belajar Jaringan Komputer Jadi Mudah</h2>
-        <p>Kumpulan panduan praktis dan tutorial dasar mengenai dunia jaringan internet dan infrastruktur komputer.</p>
+        <p>Kumpulan panduan praktis dan tutorial dasar mengenai dunia jaringan internet dan infrastruktur komputer secara terstruktur.</p>
     </section>
 
-    <!-- Komponen Search Bar Baru -->
+    <!-- Komponen Search Bar Oval -->
     <div class="search-container">
-        <input type="text" id="search-bar" class="search-input" placeholder="🔍 Cari materi tutorial di sini..." onkeyup="filterMateri()">
+        <input type="text" id="search-bar" class="search-input" placeholder="🔍 Cari materi tutorial (misal: ping, kabel, ip)..." onkeyup="filterMateri()">
     </div>
 
-    <!-- Kontainer Kartu Menu Utama -->
+    <!-- Kontainer Jaringan Utama -->
     <main class="container" id="tutorial">
         <h2 class="section-title">Daftar Tutorial Dasar</h2>
         <div class="grid" id="tutorial-grid">
@@ -87,56 +113,55 @@
         </div>
     </main>
 
-    <section class="container" id="tentang" style="text-align: center; max-width: 700px;">
-        <h2 class="section-title">Tentang Website Ini</h2>
-        <p>Website ini dibuat khusus sebagai media pembelajaran interaktif bagi siapa saja yang ingin mendalami dasar-dasar ilmu jaringan internet tanpa ribet.</p>
+    <section class="container">
+        <div class="about-section" id="tentang">
+            <h2 style="color: #1e3a8a; margin-bottom: 1rem;">Tentang Website Ini</h2>
+            <p style="color: var(--text-muted);">Website ini dibuat khusus sebagai media pembelajaran interaktif bagi siapa saja yang ingin mendalami dasar-dasar ilmu jaringan internet tanpa ribet. Dibangun menggunakan arsitektur modular data dinamis berbasis berkas JSON.</p>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kryzna. Dibuat dengan GitHub Pages.</p>
+        <p>&copy; 2026 Kryzna. Dibuat dengan penuh dedikasi melalui GitHub Pages.</p>
     </footer>
 
     <script>
-        // Variabel global untuk menyimpan data dari JSON
         let dataMateriGlobal = [];
 
         // Membaca file pangkalan data materi JSON secara asinkronus
         fetch('materi.json')
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Respons jaringan bermasalah saat membaca file materi.json');
-                }
+                if (!response.ok) throw new Error('Gagal membaca database materi.json');
                 return response.json();
             })
             .then(data => {
-                dataMateriGlobal = data; // Simpan data ke variabel global
+                dataMateriGlobal = data;
                 tampilkanMateri(dataMateriGlobal);
             })
             .catch(error => {
-                console.error('Terjadi kendala pemuatan skrip:', error);
-                const grid = document.getElementById('tutorial-grid');
-                if (grid) {
-                    grid.innerHTML = `
-                        <div style="grid-column: 1/-1; text-align: center; padding: 2rem; background: #fee2e2; border-radius: 8px; border: 1px solid #fca5a5; color: #991b1b;">
-                            <h3>Terjadi Kesalahan Struktur Data</h3>
-                            <p>Mohon periksa kembali penulisan tanda baca koma atau kurung di dalam file <strong>materi.json</strong> Anda.</p>
-                        </div>
-                    `;
-                }
+                console.error(error);
+                document.getElementById('tutorial-grid').innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 2rem; background: #fee2e2; border-radius: 8px; border: 1px solid #fca5a5; color: #991b1b;">
+                        <h3>Terjadi Kesalahan Struktur Data</h3>
+                        <p>Mohon periksa kembali penulisan tanda baca koma atau kurung di dalam file <strong>materi.json</strong> Anda.</p>
+                    </div>
+                `;
             });
 
-        // Fungsi untuk merender kartu ke dalam grid HTML
+        // Menampilkan kartu dengan penambahan data Tag dan Waktu baca otomatis
         function tampilkanMateri(materiArray) {
             const grid = document.getElementById('tutorial-grid');
-            
             if (materiArray.length === 0) {
-                grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 2rem; color: #888;">Materi yang Anda cari tidak ditemukan.</p>';
+                grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 3rem; color: var(--text-muted);">Materi yang Anda cari tidak ditemukan.</p>';
                 return;
             }
 
             grid.innerHTML = materiArray.map(item => `
                 <div class="card">
                     <div>
+                        <div class="card-meta">
+                            <span class="tag-category">${item.kategori || 'Jaringan'}</span>
+                            <span class="read-time">⏱️ ${item.waktuBaca || '3'} Menit</span>
+                        </div>
                         <h3>${item.judul || 'Judul Belum Diisi'}</h3>
                         <p>${item.deskripsiSingkat || 'Deskripsi tidak tersedia'}</p>
                     </div>
@@ -145,19 +170,17 @@
             `).join('');
         }
 
-        // Fitur Filter Pencarian Otomatis (Search Function)
+        // Fitur Filter Pencarian Instan
         function filterMateri() {
             const kataKunci = document.getElementById('search-bar').value.toLowerCase();
-            
-            // Filter berdasarkan Judul atau Deskripsi Singkat
             const hasilFilter = dataMateriGlobal.filter(item => {
-                const judulCocok = item.judul.toLowerCase().includes(kataKunci);
-                const deskripsiCocok = item.deskripsiSingkat.toLowerCase().includes(kataKunci);
-                return judulCocok || deskripsiCocok;
+                return item.judul.toLowerCase().includes(kataKunci) || 
+                       item.deskripsiSingkat.toLowerCase().includes(kataKunci) ||
+                       (item.kategori && item.kategori.toLowerCase().includes(kataKunci));
             });
-
             tampilkanMateri(hasilFilter);
         }
-    </script>
-</body>
-</html>
+
+        // Skrip Pengatur Fungsi Mode Gelap (Dark Mode)
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
