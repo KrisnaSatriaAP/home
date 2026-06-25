@@ -37,6 +37,7 @@
         /* Navigasi */
         header { background-color: var(--header-bg); color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px var(--shadow); }
         header h1 { font-size: 1.5rem; letter-spacing: 0.5px; }
+        header a { color: #fff; text-decoration: none; }
         .nav-right { display: flex; align-items: center; gap: 1.5rem; }
         nav a { color: #fff; text-decoration: none; font-weight: 500; }
         nav a:hover { color: #38bdf8; }
@@ -95,7 +96,7 @@
 <body>
 
     <header>
-        <h1>Kryzna</h1>
+        <a href="index.html"><h1>Kryzna</h1></a>
         <div class="nav-right">
             <nav>
                 <a href="#tutorial">Tutorial</a>
@@ -177,4 +178,3 @@
                             <span class="read-time">⏱️ ${item.waktuBaca || '3'} Menit</span>
                         </div>
                         <h3>${item.judul || 'Judul Belum Diisi'}</h3>
-                        <p>${item.deskripsiSingkat || 'Deskripsi tidak tersedia'}</p>
