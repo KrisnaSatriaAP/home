@@ -82,8 +82,14 @@
 
         /* Section Tentang */
         .about-section { text-align: center; max-width: 700px; margin: 5rem auto; padding: 2.5rem 1.5rem; background: var(--bg-card); border-radius: 12px; box-shadow: 0 4px 15px var(--shadow); }
+        .about-section h2 { color: #1e3a8a; margin-bottom: 1rem; }
+        [data-theme="dark"] .about-section h2 { color: #38bdf8; }
 
-        footer { background-color: #1e293b; color: white; text-align: center; padding: 1.8rem 1rem; margin-top: 5rem; font-size: 0.95rem; border-top: 4px solid #111827; }
+        /* Footer Profesional */
+        footer { background-color: #1e293b; color: white; text-align: center; padding: 2rem 1rem; margin-top: 5rem; font-size: 0.95rem; border-top: 4px solid #111827; }
+        .footer-links { margin-top: 0.8rem; display: flex; justify-content: center; gap: 15px; font-weight: 500; }
+        .footer-links a { color: #38bdf8; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #0ea5e9; }
     </style>
 </head>
 <body>
@@ -93,8 +99,8 @@
         <div class="nav-right">
             <nav>
                 <a href="#tutorial">Tutorial</a>
+                <a href="#tentang" style="margin-left: 1.5rem;">Tentang</a>
             </nav>
-            <!-- Tombol Switch Dark Mode -->
             <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Ubah Mode Tampilan">🌙</button>
         </div>
     </header>
@@ -104,12 +110,10 @@
         <p>Kumpulan panduan praktis dan tutorial dasar mengenai dunia jaringan internet dan infrastruktur komputer secara terstruktur.</p>
     </section>
 
-    <!-- Komponen Search Bar Oval -->
     <div class="search-container">
         <input type="text" id="search-bar" class="search-input" placeholder="🔍 Cari materi tutorial (misal: ping, kabel, ip)..." onkeyup="filterMateri()">
     </div>
 
-    <!-- Kontainer Jaringan Utama -->
     <main class="container" id="tutorial">
         <h2 class="section-title">Daftar Tutorial Dasar</h2>
         <div class="grid" id="tutorial-grid">
@@ -119,13 +123,19 @@
 
     <section class="container">
         <div class="about-section" id="tentang">
-            <h2 style="color: #1e3a8a; margin-bottom: 1rem;">Tentang Website Ini</h2>
+            <h2>Tentang Website Ini</h2>
             <p style="color: var(--text-muted);">Website ini dibuat khusus sebagai media pembelajaran interaktif bagi siapa saja yang ingin mendalami dasar-dasar ilmu jaringan internet tanpa ribet. Dibangun menggunakan arsitektur modular data dinamis berbasis berkas JSON.</p>
         </div>
     </section>
 
+    <!-- Footer Terintegrasi Tautan Media Sosial -->
     <footer>
         <p>&copy; 2026 Kryzna. Dibuat dengan penuh dedikasi melalui GitHub Pages.</p>
+        <div class="footer-links">
+            <a href="https://github.com" target="_blank">🔗 GitHub Profil</a>
+            <span style="color: #475569;">|</span>
+            <a href="https://github.io">🌐 Beranda Kryzna</a>
+        </div>
     </footer>
 
     <script>
@@ -151,7 +161,7 @@
                 `;
             });
 
-        // Menampilkan kartu dengan penambahan data Tag dan Waktu baca otomatis
+        // Menampilkan kartu tutorial ke grid
         function tampilkanMateri(materiArray) {
             const grid = document.getElementById('tutorial-grid');
             if (materiArray.length === 0) {
@@ -168,23 +178,3 @@
                         </div>
                         <h3>${item.judul || 'Judul Belum Diisi'}</h3>
                         <p>${item.deskripsiSingkat || 'Deskripsi tidak tersedia'}</p>
-                    </div>
-                    <a href="${item.linkHalaman || '#'}" class="btn-read">Buka Tutorial</a>
-                </div>
-            `).join('');
-        }
-
-        // Fitur Filter Pencarian Instan
-        function filterMateri() {
-            const kataKunci = document.getElementById('search-bar').value.toLowerCase();
-            const hasilFilter = dataMateriGlobal.filter(item => {
-                return item.judul.toLowerCase().includes(kataKunci) || 
-                       item.deskripsiSingkat.toLowerCase().includes(kataKunci) ||
-                       (item.kategori && item.kategori.toLowerCase().includes(kataKunci));
-            });
-            tampilkanMateri(hasilFilter);
-        }
-
-        // Skrip Pengatur Fungsi Mode Gelap (Dark Mode)
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
