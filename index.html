@@ -144,7 +144,9 @@
         let dataMateriGlobal = [];
 
         // Membaca file pangkalan data materi JSON secara asinkronus (Murni mengambil dari materi.json)
-        fetch('materi.json')
+        // Ditambahkan tanda tanya dan angka acak agar browser dipaksa mengambil file materi.json yang paling baru
+        fetch('materi.json?v=' + new Date().getTime())
+
             .then(response => {
                 if (!response.ok) throw new Error('Gagal membaca database materi.json');
                 return response.json();
