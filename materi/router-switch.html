@@ -11,17 +11,56 @@
         h3 { color: #0ea5e9; margin-top: 1.5rem; }
         ul { margin-left: 1.5rem; }
         li { margin-bottom: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: #fff; }
+        th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: left; }
+        th { background-color: #1e3a8a; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-link">← Kembali ke Menu Utama</a>
+    <!-- Menggunakan ../index.html karena file berada di dalam folder materi -->
+    <a href="../index.html" class="back-link">← Kembali ke Menu Utama</a>
+    
     <h1>4. Perbedaan Fungsi Router dan Switch</h1>
     <p>Banyak orang awam mengira Router dan Switch adalah alat yang sama karena bentuk fisiknya mirip. Padahal keduanya bekerja di lapisan jaringan yang berbeda dan memiliki tugas utama yang jauh berbeda.</p>
     
     <h3>1. Switch (Penghubung Jaringan Lokal)</h3>
-    <p>Switch berfungsi untuk menghubungkan banyak komputer atau perangkat di dalam satu jaringan lokal (LAN) yang sama agar bisa saling bertukar data menggunakan MAC Address. Switch tidak bisa memberikan akses internet secara mandiri.</p>
+    <p>Switch berfungsi untuk menghubungkan banyak komputer atau perangkat di dalam satu jaringan lokal (LAN) yang sama agar bisa saling bertukar data menggunakan MAC Address. Switch bekerja pada Data Link Layer (Layer 2) dalam model OSI dan tidak bisa memberikan akses internet secara mandiri.</p>
 
     <h3>2. Router (Penghubung Antar Jaringan / Internet)</h3>
-    <p>Router berfungsi untuk menghubungkan jaringan lokal Anda ke jaringan luar atau internet menggunakan IP Address. Router bertugas mencari rute tercepat agar paket data internet dari penyedia layanan (ISP) bisa sampai ke perangkat pintar Anda.</p>
+    <p>Router berfungsi untuk menghubungkan jaringan lokal Anda ke jaringan luar atau internet menggunakan IP Address. Router bekerja pada Network Layer (Layer 3) dalam model OSI dan bertugas mencari rute tercepat agar paket data internet dari penyedia layanan (ISP) bisa sampai ke perangkat pintar Anda.</p>
+
+    <h3>Tabel Perbandingan Singkat:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Fitur / Karakteristik</th>
+                <th>Switch</th>
+                <th>Router</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Fungsi Utama</strong></td>
+                <td>Menghubungkan perangkat dalam satu jaringan (LAN)</td>
+                <td>Menghubungkan beberapa jaringan yang berbeda (LAN ke WAN/Internet)</td>
+            </tr>
+            <tr>
+                <td><strong>Lapisan OSI (Layer)</strong></td>
+                <td>Layer 2 (Data Link Layer)</td>
+                <td>Layer 3 (Network Layer)</td>
+            </tr>
+            <tr>
+                <td><strong>Basis Pengiriman Data</strong></td>
+                <td>Menggunakan MAC Address</td>
+                <td>Menggunakan IP Address</td>
+            </tr>
+            <tr>
+                <td><strong>Akses Internet</strong></td>
+                <td>Tidak bisa membagikan internet secara mandiri</td>
+                <td>Bisa mengatur dan membagikan akses internet</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
