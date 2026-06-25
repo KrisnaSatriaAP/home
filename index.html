@@ -1,754 +1,180 @@
 <!DOCTYPE html>
-<!-- saved from url=(0029)https://neosantarasolusi.net/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">:root, :host {
-  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Solid";
-  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Regular";
-  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Light";
-  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Thin";
-  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
-  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
-}
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Jaringan & Komputer</title>
+    <style>
+        /* Gaya Dasar & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
 
-svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
-  overflow: visible;
-  box-sizing: content-box;
-}
+        /* Navigasi */
+        header {
+            background-color: #1e3a8a;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 1.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #38bdf8;
+        }
 
-.svg-inline--fa {
-  display: var(--fa-display, inline-block);
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
-}
-.svg-inline--fa.fa-2xs {
-  vertical-align: 0.1em;
-}
-.svg-inline--fa.fa-xs {
-  vertical-align: 0em;
-}
-.svg-inline--fa.fa-sm {
-  vertical-align: -0.0714285705em;
-}
-.svg-inline--fa.fa-lg {
-  vertical-align: -0.2em;
-}
-.svg-inline--fa.fa-xl {
-  vertical-align: -0.25em;
-}
-.svg-inline--fa.fa-2xl {
-  vertical-align: -0.3125em;
-}
-.svg-inline--fa.fa-pull-left {
-  margin-right: var(--fa-pull-margin, 0.3em);
-  width: auto;
-}
-.svg-inline--fa.fa-pull-right {
-  margin-left: var(--fa-pull-margin, 0.3em);
-  width: auto;
-}
-.svg-inline--fa.fa-li {
-  width: var(--fa-li-width, 2em);
-  top: 0.25em;
-}
-.svg-inline--fa.fa-fw {
-  width: var(--fa-fw-width, 1.25em);
-}
+        /* Banner Utama */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.fa-layers svg.svg-inline--fa {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+        /* Konten Utama */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e3a8a;
+        }
 
-.fa-layers-counter, .fa-layers-text {
-  display: inline-block;
-  position: absolute;
-  text-align: center;
-}
+        /* Grid Kartu Tutorial */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid #0ea5e9;
+        }
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+        .card ol {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .card li {
+            margin-bottom: 0.4rem;
+        }
 
-.fa-layers {
-  display: inline-block;
-  height: 1em;
-  position: relative;
-  text-align: center;
-  vertical-align: -0.125em;
-  width: 1em;
-}
-.fa-layers svg.svg-inline--fa {
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
+        /* Kaki Halaman */
+        footer {
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
 
-.fa-layers-text {
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
+    <!-- Header / Navigasi -->
+    <header>
+        <h1>EduJaringan.id</h1>
+        <nav>
+            <a href="#tutorial">Tutorial</a>
+            <a href="#tentang">Tentang</a>
+        </nav>
+    </header>
 
-.fa-layers-counter {
-  background-color: var(--fa-counter-background-color, #ff253a);
-  border-radius: var(--fa-counter-border-radius, 1em);
-  box-sizing: border-box;
-  color: var(--fa-inverse, #fff);
-  line-height: var(--fa-counter-line-height, 1);
-  max-width: var(--fa-counter-max-width, 5em);
-  min-width: var(--fa-counter-min-width, 1.5em);
-  overflow: hidden;
-  padding: var(--fa-counter-padding, 0.25em 0.5em);
-  right: var(--fa-right, 0);
-  text-overflow: ellipsis;
-  top: var(--fa-top, 0);
-  -webkit-transform: scale(var(--fa-counter-scale, 0.25));
-          transform: scale(var(--fa-counter-scale, 0.25));
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
+    <!-- Banner Pemandangan -->
+    <section class="hero">
+        <h2>Belajar Jaringan Komputer Jadi Mudah</h2>
+        <p>Kumpulan panduan praktis dan tutorial dasar mengenai dunia jaringan internet dan infrastruktur komputer.</p>
+    </section>
 
-.fa-layers-bottom-right {
-  bottom: var(--fa-bottom, 0);
-  right: var(--fa-right, 0);
-  top: auto;
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: bottom right;
-          transform-origin: bottom right;
-}
+    <!-- Bagian Tutorial -->
+    <main class="container" id="tutorial">
+        <h2 class="section-title">Daftar Tutorial Dasar</h2>
+        
+        <div class="grid">
+            <!-- Kartu 1 -->
+            <div class="card">
+                <h3>1. Mengenal IP Address</h3>
+                <p>IP Address adalah alamat identitas unik setiap perangkat di dalam jaringan internet.</p>
+                <ol>
+                    <li>Buka Command Prompt (cmd) di Windows.</li>
+                    <li>Ketik perintah <strong>ipconfig</strong> lalu tekan Enter.</li>
+                    <li>Cari baris <em>IPv4 Address</em> untuk melihat IP komputer Anda.</li>
+                </ol>
+            </div>
 
-.fa-layers-bottom-left {
-  bottom: var(--fa-bottom, 0);
-  left: var(--fa-left, 0);
-  right: auto;
-  top: auto;
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: bottom left;
-          transform-origin: bottom left;
-}
+            <!-- Kartu 2 -->
+            <div class="card">
+                <h3>2. Cara Tes Koneksi (Ping)</h3>
+                <p>Perintah Ping digunakan untuk memeriksa apakah komputer Anda terhubung ke server target.</p>
+                <ol>
+                    <li>Buka terminal atau Command Prompt.</li>
+                    <li>Ketik <strong>ping google.com</strong> lalu tekan Enter.</li>
+                    <li>Jika muncul balasan <em>Reply from...</em>, koneksi Anda normal.</li>
+                </ol>
+            </div>
 
-.fa-layers-top-right {
-  top: var(--fa-top, 0);
-  right: var(--fa-right, 0);
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
+            <!-- Kartu 3 -->
+            <div class="card">
+                <h3>3. Urutan Kabel UTP (Crimping)</h3>
+                <p>Panduan menyusun kabel LAN dengan standar internasional T568B (Straight-through).</p>
+                <ol>
+                    <li>Urutan warna: Putih-Orange, Orange, Putih-Hijau, Biru.</li>
+                    <li>Lanjutan: Putih-Biru, Hijau, Putih-Cokelat, Cokelat.</li>
+                    <li>Ratakan ujung kabel, masukkan ke konektor RJ45, lalu jepit.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
 
-.fa-layers-top-left {
-  left: var(--fa-left, 0);
-  right: auto;
-  top: var(--fa-top, 0);
-  -webkit-transform: scale(var(--fa-layers-scale, 0.25));
-          transform: scale(var(--fa-layers-scale, 0.25));
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-}
+    <!-- Bagian Tentang -->
+    <section class="container" id="tentang" style="text-align: center; max-width: 700px;">
+        <h2 class="section-title">Tentang Website Ini</h2>
+        <p>Website ini dibuat khusus sebagai media pembelajaran interaktif bagi siapa saja yang ingin mendalami dasar-dasar ilmu jaringan internet tanpa ribet.</p>
+    </section>
 
-.fa-1x {
-  font-size: 1em;
-}
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 EduJaringan.id. Dibuat dengan GitHub Pages.</p>
+    </footer>
 
-.fa-2x {
-  font-size: 2em;
-}
-
-.fa-3x {
-  font-size: 3em;
-}
-
-.fa-4x {
-  font-size: 4em;
-}
-
-.fa-5x {
-  font-size: 5em;
-}
-
-.fa-6x {
-  font-size: 6em;
-}
-
-.fa-7x {
-  font-size: 7em;
-}
-
-.fa-8x {
-  font-size: 8em;
-}
-
-.fa-9x {
-  font-size: 9em;
-}
-
-.fa-10x {
-  font-size: 10em;
-}
-
-.fa-2xs {
-  font-size: 0.625em;
-  line-height: 0.1em;
-  vertical-align: 0.225em;
-}
-
-.fa-xs {
-  font-size: 0.75em;
-  line-height: 0.0833333337em;
-  vertical-align: 0.125em;
-}
-
-.fa-sm {
-  font-size: 0.875em;
-  line-height: 0.0714285718em;
-  vertical-align: 0.0535714295em;
-}
-
-.fa-lg {
-  font-size: 1.25em;
-  line-height: 0.05em;
-  vertical-align: -0.075em;
-}
-
-.fa-xl {
-  font-size: 1.5em;
-  line-height: 0.0416666682em;
-  vertical-align: -0.125em;
-}
-
-.fa-2xl {
-  font-size: 2em;
-  line-height: 0.03125em;
-  vertical-align: -0.1875em;
-}
-
-.fa-fw {
-  text-align: center;
-  width: 1.25em;
-}
-
-.fa-ul {
-  list-style-type: none;
-  margin-left: var(--fa-li-margin, 2.5em);
-  padding-left: 0;
-}
-.fa-ul > li {
-  position: relative;
-}
-
-.fa-li {
-  left: calc(var(--fa-li-width, 2em) * -1);
-  position: absolute;
-  text-align: center;
-  width: var(--fa-li-width, 2em);
-  line-height: inherit;
-}
-
-.fa-border {
-  border-color: var(--fa-border-color, #eee);
-  border-radius: var(--fa-border-radius, 0.1em);
-  border-style: var(--fa-border-style, solid);
-  border-width: var(--fa-border-width, 0.08em);
-  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
-}
-
-.fa-pull-left {
-  float: left;
-  margin-right: var(--fa-pull-margin, 0.3em);
-}
-
-.fa-pull-right {
-  float: right;
-  margin-left: var(--fa-pull-margin, 0.3em);
-}
-
-.fa-beat {
-  -webkit-animation-name: fa-beat;
-          animation-name: fa-beat;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
-          animation-timing-function: var(--fa-animation-timing, ease-in-out);
-}
-
-.fa-bounce {
-  -webkit-animation-name: fa-bounce;
-          animation-name: fa-bounce;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
-          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
-}
-
-.fa-fade {
-  -webkit-animation-name: fa-fade;
-          animation-name: fa-fade;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
-          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
-}
-
-.fa-beat-fade {
-  -webkit-animation-name: fa-beat-fade;
-          animation-name: fa-beat-fade;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
-          animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
-}
-
-.fa-flip {
-  -webkit-animation-name: fa-flip;
-          animation-name: fa-flip;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, ease-in-out);
-          animation-timing-function: var(--fa-animation-timing, ease-in-out);
-}
-
-.fa-shake {
-  -webkit-animation-name: fa-shake;
-          animation-name: fa-shake;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
-          animation-timing-function: var(--fa-animation-timing, linear);
-}
-
-.fa-spin {
-  -webkit-animation-name: fa-spin;
-          animation-name: fa-spin;
-  -webkit-animation-delay: var(--fa-animation-delay, 0);
-          animation-delay: var(--fa-animation-delay, 0);
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 2s);
-          animation-duration: var(--fa-animation-duration, 2s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, linear);
-          animation-timing-function: var(--fa-animation-timing, linear);
-}
-
-.fa-spin-reverse {
-  --fa-animation-direction: reverse;
-}
-
-.fa-pulse,
-.fa-spin-pulse {
-  -webkit-animation-name: fa-spin;
-          animation-name: fa-spin;
-  -webkit-animation-direction: var(--fa-animation-direction, normal);
-          animation-direction: var(--fa-animation-direction, normal);
-  -webkit-animation-duration: var(--fa-animation-duration, 1s);
-          animation-duration: var(--fa-animation-duration, 1s);
-  -webkit-animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-          animation-iteration-count: var(--fa-animation-iteration-count, infinite);
-  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
-          animation-timing-function: var(--fa-animation-timing, steps(8));
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fa-beat,
-.fa-bounce,
-.fa-fade,
-.fa-beat-fade,
-.fa-flip,
-.fa-pulse,
-.fa-shake,
-.fa-spin,
-.fa-spin-pulse {
-    -webkit-animation-delay: -1ms;
-            animation-delay: -1ms;
-    -webkit-animation-duration: 1ms;
-            animation-duration: 1ms;
-    -webkit-animation-iteration-count: 1;
-            animation-iteration-count: 1;
-    transition-delay: 0s;
-    transition-duration: 0s;
-  }
-}
-@-webkit-keyframes fa-beat {
-  0%, 90% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  45% {
-    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
-            transform: scale(var(--fa-beat-scale, 1.25));
-  }
-}
-@keyframes fa-beat {
-  0%, 90% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  45% {
-    -webkit-transform: scale(var(--fa-beat-scale, 1.25));
-            transform: scale(var(--fa-beat-scale, 1.25));
-  }
-}
-@-webkit-keyframes fa-bounce {
-  0% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  10% {
-    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-  }
-  30% {
-    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-  }
-  50% {
-    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-  }
-  57% {
-    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-  }
-  64% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-}
-@keyframes fa-bounce {
-  0% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  10% {
-    -webkit-transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-            transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
-  }
-  30% {
-    -webkit-transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-            transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
-  }
-  50% {
-    -webkit-transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-            transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
-  }
-  57% {
-    -webkit-transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-            transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
-  }
-  64% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    -webkit-transform: scale(1, 1) translateY(0);
-            transform: scale(1, 1) translateY(0);
-  }
-}
-@-webkit-keyframes fa-fade {
-  50% {
-    opacity: var(--fa-fade-opacity, 0.4);
-  }
-}
-@keyframes fa-fade {
-  50% {
-    opacity: var(--fa-fade-opacity, 0.4);
-  }
-}
-@-webkit-keyframes fa-beat-fade {
-  0%, 100% {
-    opacity: var(--fa-beat-fade-opacity, 0.4);
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
-            transform: scale(var(--fa-beat-fade-scale, 1.125));
-  }
-}
-@keyframes fa-beat-fade {
-  0%, 100% {
-    opacity: var(--fa-beat-fade-opacity, 0.4);
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    -webkit-transform: scale(var(--fa-beat-fade-scale, 1.125));
-            transform: scale(var(--fa-beat-fade-scale, 1.125));
-  }
-}
-@-webkit-keyframes fa-flip {
-  50% {
-    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-  }
-}
-@keyframes fa-flip {
-  50% {
-    -webkit-transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-            transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
-  }
-}
-@-webkit-keyframes fa-shake {
-  0% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
-  }
-  4% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
-  }
-  8%, 24% {
-    -webkit-transform: rotate(-18deg);
-            transform: rotate(-18deg);
-  }
-  12%, 28% {
-    -webkit-transform: rotate(18deg);
-            transform: rotate(18deg);
-  }
-  16% {
-    -webkit-transform: rotate(-22deg);
-            transform: rotate(-22deg);
-  }
-  20% {
-    -webkit-transform: rotate(22deg);
-            transform: rotate(22deg);
-  }
-  32% {
-    -webkit-transform: rotate(-12deg);
-            transform: rotate(-12deg);
-  }
-  36% {
-    -webkit-transform: rotate(12deg);
-            transform: rotate(12deg);
-  }
-  40%, 100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-@keyframes fa-shake {
-  0% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
-  }
-  4% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
-  }
-  8%, 24% {
-    -webkit-transform: rotate(-18deg);
-            transform: rotate(-18deg);
-  }
-  12%, 28% {
-    -webkit-transform: rotate(18deg);
-            transform: rotate(18deg);
-  }
-  16% {
-    -webkit-transform: rotate(-22deg);
-            transform: rotate(-22deg);
-  }
-  20% {
-    -webkit-transform: rotate(22deg);
-            transform: rotate(22deg);
-  }
-  32% {
-    -webkit-transform: rotate(-12deg);
-            transform: rotate(-12deg);
-  }
-  36% {
-    -webkit-transform: rotate(12deg);
-            transform: rotate(12deg);
-  }
-  40%, 100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-@-webkit-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-@keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-.fa-rotate-90 {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.fa-rotate-180 {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.fa-rotate-270 {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-.fa-flip-horizontal {
-  -webkit-transform: scale(-1, 1);
-          transform: scale(-1, 1);
-}
-
-.fa-flip-vertical {
-  -webkit-transform: scale(1, -1);
-          transform: scale(1, -1);
-}
-
-.fa-flip-both,
-.fa-flip-horizontal.fa-flip-vertical {
-  -webkit-transform: scale(-1, -1);
-          transform: scale(-1, -1);
-}
-
-.fa-rotate-by {
-  -webkit-transform: rotate(var(--fa-rotate-angle, none));
-          transform: rotate(var(--fa-rotate-angle, none));
-}
-
-.fa-stack {
-  display: inline-block;
-  vertical-align: middle;
-  height: 2em;
-  position: relative;
-  width: 2.5em;
-}
-
-.fa-stack-1x,
-.fa-stack-2x {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: var(--fa-stack-z-index, auto);
-}
-
-.svg-inline--fa.fa-stack-1x {
-  height: 1em;
-  width: 1.25em;
-}
-.svg-inline--fa.fa-stack-2x {
-  height: 2em;
-  width: 2.5em;
-}
-
-.fa-inverse {
-  color: var(--fa-inverse, #fff);
-}
-
-.sr-only,
-.fa-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.sr-only-focusable:not(:focus),
-.fa-sr-only-focusable:not(:focus) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.svg-inline--fa .fa-primary {
-  fill: var(--fa-primary-color, currentColor);
-  opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa .fa-secondary {
-  fill: var(--fa-secondary-color, currentColor);
-  opacity: var(--fa-secondary-opacity, 0.4);
-}
-
-.svg-inline--fa.fa-swap-opacity .fa-primary {
-  opacity: var(--fa-secondary-opacity, 0.4);
-}
-
-.svg-inline--fa.fa-swap-opacity .fa-secondary {
-  opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa mask .fa-primary,
-.svg-inline--fa mask .fa-secondary {
-  fill: black;
-}
-
-.fad.fa-inverse,
-.fa-duotone.fa-inverse {
-  color: var(--fa-inverse, #fff);
-}</style><link rel="icon" href="https://neosantarasolusi.net/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><meta name="description" content="PT Neo Santara Solusi Official Website"><link rel="apple-touch-icon" href="https://neosantarasolusi.net/logo192.png"><link rel="manifest" href="https://neosantarasolusi.net/manifest.json"><title>Neo Santara Solusi</title><script defer="defer" src="https://neosantarasolusi.net/static/js/main.bfd6bea7.js"></script><link href="https://neosantarasolusi.net/static/css/main.aee0a0dd.css" rel="stylesheet"><style data-styled="active" data-styled-version="5.3.5"></style></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><div class="App"><header class="sc-idiyUo ecmZwO"><div class="top"><div class="sc-hHLeRK gLvafc"><a class="active"><img src="https://neosantarasolusi.net/assets/images/logoNSS.png" alt="Neo Santara Solusi"></a></div><div class="sc-dIouRR lghFXf"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-xl " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path></svg></div></div><nav id="nav" class="sc-dmRaPn fXwTnC"><ul><li><a class="active"><button class="sc-kgflAQ kLgcto">Home</button></a></li><li><a><button class="sc-kgflAQ kLgcto">About</button></a></li><li><a><button class="sc-kgflAQ kLgcto">Services</button></a></li><li><a><button class="sc-kgflAQ kLgcto">Carreer</button></a></li></ul></nav></header><section id="home" class="sc-bczRLJ bhUwQc"><div class="sc-gsnTZi bTLxOA"><h1 data-aos="fade-up">neo santara solusi</h1><p data-aos="fade-up">internet service provider yang menyediakan layanan internet dedicated untuk memenuhi kebutuhan digital anda di era modern saat ini</p><p data-aos="fade-up">perkembangan teknologi yang semakin pesat tentu saja harus diimbangi dengan penggunaan jaringan internet stabil agar pertukaran informasi dapat dijalankan dengan cepat tanpa ada jeda waktu yang mengganggu</p><a><button data-aos="fade-up" class="sc-dkzDqf jbWdYU">Get In Touch</button></a></div></section><section id="about" class="sc-hKMtZM lfYPhi"><h1 data-aos="fade-up">kami berfokus pada anda!</h1><p data-aos="fade-up">bagi kami, pelanggan adalah prioritas utama</p><p data-aos="fade-up">kami menyediakan pelayanan yang terbaik dan relevan untuk meningkatkan kebutuhan digital anda</p><p data-aos="fade-up">terus berkomitmen untuk memberikan anda pengalaman terbaik dalam berjelajah internet menggunakan layanan kami</p><p data-aos="fade-up">pelayanan dan pengalaman kami untuk memastikan kenyamanan anda</p><div data-aos="fade-up" class="sc-eCYdqJ kMnvNC"><h1>Tentang Kami</h1></div><div class="sc-jSMfEi iwxUYB"><h1 data-aos="fade-up">Company Profile</h1><div><div data-aos="fade-up" class="sc-gKXOVf bhWDpl"><img src="https://neosantarasolusi.net/assets/images/company-img.webp" alt="company profiles"></div><div data-aos="fade-up" class="sc-iBkjds cEnLxR"><p>NEO SANTARA SOLUSI adalah perusahan yang bergerak di bidang penyedia layanan internet dan mengatasi masalah IT di indonesia.<br>NEO SANTARA SOLUSI menyediakan produk dan layanan untuk kebutuhan IT meliputi: penyediaan layanan internet, computer support, pengembangan software, konfigurasi jaringan</p><p>kami berdedikasi untuk menyediakan layanan terbaik untuk memenuhi kebutuhan digital anda. kami akan terus memberikan inovasi-inovasi baru untuk memastikan kualitas teknologi yang anda gunakan bukan hanya dapat dinikmati di kota besar di indonesia</p></div></div></div><div class="sc-ftvSup bPJOsm"><h1 data-aos="fade-up">Visi dan Misi</h1><div><div data-aos="fade-up" class="sc-gKXOVf bhWDpl"><h2>Visi</h2><p>merealisasikan sebuah jaringan internet guna mendukung perkembangan teknologi digital di seluruh pelosok negeri</p><h2>Misi</h2><p>menyediakan akses digital teknologi untuk masyarakat luas.<br><br>membangun hubungan baik dengan komunitas lokal untuk meningkatkan potensi dari komunitas individu<br><br>menyediakan penawaran dan pelayanan untuk bisnis anda<br><br>mendukung pemerintah untuk mengembangkan teknologi digital</p></div><div data-aos="fade-up" class="sc-iBkjds cEnLxR"><img src="https://neosantarasolusi.net/assets/images/visi-img.webp" alt="visi &amp; misi"></div></div></div></section><section id="services" class="sc-papXJ cnOPzR"><div class="sc-jqUVSM fuQbnY"><h1>Produk Kami</h1></div><div class="sc-kDDrLX bVzrqN"><div class="sc-iqcoie gOozhI dedicated"><div class="card-info"><p class="title">Dedicated Internet</p><p class="subtitle">Koneksi Internet 1:1</p></div><div class="card-bio"><p>Kami menyediakan internet dedicated 1:1 untuk memenuhi kebutuhan internet bisnis agar dapat berjalan dengan baik</p></div></div><div class="sc-iqcoie gOozhI ip"><div class="card-info"><p class="title">Ip Public</p><p class="subtitle">Akses dari manapun</p></div><div class="card-bio"><p>Dukungan ip public yang memungkinkan anda mengakses perangkat anda dari mana saja</p></div></div><div class="sc-iqcoie gOozhI web-server"><div class="card-info"><p class="title">Cloud Web Server</p><p class="subtitle">Web Server virtual untuk anda</p></div><div class="card-bio"><p>memungkinkan anda untuk memiliki web server yang berjalan secara clouds</p></div></div><div class="sc-iqcoie gOozhI it-support"><div class="card-info"><p class="title">IT Supports</p><p class="subtitle">menyediakan kebutuhan anda dalam keperluan IT</p></div><div class="card-bio"><p>kami melakukan pengadaan peralatan komputer untuk kebutuhan kantor anda</p></div></div><div class="sc-iqcoie gOozhI software-dev"><div class="card-info"><p class="title">Software development</p><p class="subtitle">web kustom sesuai kebutuhan anda</p></div><div class="card-bio"><p>kami melayani jasa pembuatan web untuk meningkatkan produktivitas bisnis anda</p></div></div></div></section><section id="carreer" class="sc-crXcEl kYmlIm"><div class="sc-evZas LYNoW"><h3>Menjadi bagian dari kami</h3><p>kami memberikan kesempatan anda untuk berkembang bersama kami menyediakan akses digital teknologi untuk masyarakat luas</p></div><div class="sc-breuTD dinjtU"><div class="sc-ksZaOG kIoPbC marketing"><div class="card-details"><p class="title">Senior Marketing</p><p class="body">membantu merancang perkembangan pasar</p></div><button class="button">Make Call</button></div><div class="sc-ksZaOG kIoPbC teknisi"><div class="card-details"><p class="title">Network Technician</p><p class="body">merancang dan membangun sistem jaringan</p></div><button class="button">Make Call</button></div></div></section><footer class="sc-hAZoDl cISTg"><div class="sc-fnykZs giMfmy"><a class="active"><h1>neo santara solusi</h1></a></div><div class="sc-fEOsli fFCnVZ"><button>Email : marketing@neosantarasolusi.net</button><button>Call : +62 811 3300 901</button></div><div class="sc-bjUoiL kWeEaV"><p>™ Neo Santara Solusi est. 2021</p></div></footer></div></div></body></html>
+</body>
+</html>
